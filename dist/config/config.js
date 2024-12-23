@@ -8,7 +8,7 @@ const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 exports.config = {
     port: process.env.PORT ? process.env.PORT : "7080",
-    dbport: process.env.DB_PORT ? parseInt(process.env.DB_PORT) : 3306,
+    dbport: process.env.DB_PORT ? parseInt(process.env.DB_PORT) : 5432,
     dbuser: process.env.DB_USER ? process.env.DB_USER : "",
     dbhost: process.env.DB_HOST ? process.env.DB_HOST : "",
     dbPassword: process.env.DB_PASSWORD ? process.env.DB_PASSWORD : "",
