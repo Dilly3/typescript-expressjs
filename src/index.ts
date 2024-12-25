@@ -1,10 +1,22 @@
 import express, { Express, Response } from "express";
 import {config} from "./config/config"
-import {AppDataSource} from "./database/database"
+import {AppDataSource} from "./database/database";
+import bodyParser from "body-parser";
+import Cors from 'cors'
+import { TaskRouter } from "./server/tasks_router";
+
 
 
 const app: Express = express();
-const PORT = config.port ? config.port : "7080"
+
+app.use(bodyParser.json())
+
+app.use(Cors())
+app.use('/tasks', TaskRouter)
+
+
+
+const PORT = config.getPort ? config.getPort : "7080"
 
 app.get("/", (_, res: Response) => {
   res.json("Hello World");

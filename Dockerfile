@@ -12,13 +12,16 @@ RUN npm install -g nodemon
 # Copy package files
 COPY package*.json ./
 
+# Install dependencies including cors and its types
+RUN npm install cors @types/cors express @types/express
+RUN npm install class-transformer
 # Install dependencies
 RUN npm install
 
 # Copy app source code
 COPY . .
 
-ENV NODE_ENV=production
+ENV NODE_ENV=development
 ENV PORT=7080
 
 # Expose the port your app runs on
