@@ -3,6 +3,7 @@ import {Column, Entity,PrimaryGeneratedColumn} from 'typeorm';
 import { Status} from '../enum/status'
 import {Priority} from '../enum/priority'
 
+
 @Entity()
 export class Task {
     @PrimaryGeneratedColumn('uuid')
