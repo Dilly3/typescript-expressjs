@@ -24,4 +24,17 @@ export class TaskRepository {
             throw new Error('Failed to fetch tasks');
         }
     }
+
+    public async saveTask(task : Task): Promise<Task> {
+        try {
+
+            const tasksaved = await this.taskRepo.save(task)
+           
+            return instanceToPlain(tasksaved) as Task
+        } catch (error) {
+            const errorMessage = error instanceof Error ? error.message : "unknown error"
+            console.error('Failed to save task:', errorMessage);
+            throw new Error('Failed to save task');
+        }
+    }
 }

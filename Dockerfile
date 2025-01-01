@@ -14,7 +14,9 @@ COPY package*.json ./
 
 # Install dependencies including cors and its types
 RUN npm install cors @types/cors express @types/express
+RUN npm install uuid install @types/uuid
 RUN npm install class-transformer
+RUN npm install express-validator
 # Install dependencies
 RUN npm install
 
