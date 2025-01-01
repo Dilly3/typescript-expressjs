@@ -11,4 +11,7 @@ export class TaskController{
         return await this.repo.getAll()
         
     }
+    public async saveTask(task : Task) : Promise<Task>{
+        return await this.repo.saveTask(task)
+    }
 }
