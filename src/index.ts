@@ -1,5 +1,5 @@
 import express, { Express, Response } from "express";
-import {config} from "./config/config"
+import {Config} from "./config/config"
 import {AppDataSource} from "./database/database";
 import bodyParser from "body-parser";
 import Cors from 'cors'
@@ -16,7 +16,7 @@ app.use('/tasks', TaskRouter)
 
 
 
-const PORT = config.getPort ? config.getPort : "7080"
+
 
 app.get("/", (_, res: Response) => {
   res.json("Hello World");
@@ -24,7 +24,7 @@ app.get("/", (_, res: Response) => {
 
 AppDataSource.initialize().then(() => {
     console.log("Connected to database successfully, GoodLuck!");
-    app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
+    app.listen(Config.port, () => console.log(`Server listening on port ${Config.port}`));
 }).catch((err: Error) => {
     console.error("Database connection failed:", {
         message: err.message,
